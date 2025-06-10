@@ -9,8 +9,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+// import org.slf4j.Logger;
+// import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,7 +25,7 @@ import java.util.List;
  */
 public class SeedExecutor implements Runnable {
 
-  private static Logger logger = LoggerFactory.getLogger(SeedExecutor.class);
+  // private static Logger logger = LoggerFactory.getLogger(SeedExecutor.class);
 
   private final Seed seed;
 
@@ -62,7 +62,8 @@ public class SeedExecutor implements Runnable {
             .filterFile));
       } catch (Exception ex) {
         this.filter = new BloomFilter<>(0.05, 1000);
-        logger.error("Error happen when deserialize bloom filter", ex);
+        // logger.error("Error happen when deserialize bloom filter", ex);
+        System.out.println("Error happen when deserialize bloom filter");
       }
 
     }
@@ -72,9 +73,8 @@ public class SeedExecutor implements Runnable {
     queued.add(seedUrl);
     while (!queued.isEmpty()) {
       WebUrl webUrl = queued.remove(0);
-      logger.info("Visit web url =>" + webUrl.getUrl() + " (left:" + queued
-          .size()
-          + ")");
+      // logger.info("Visit web url =>" + webUrl.getUrl() + " (left:" + queued.size() + ")");
+      System.out.println("Visit web url =>" + webUrl.getUrl() + " (left:" + queued.size() + ")");
       try {
         Document document = getDocument(webUrl);
         if (document == null) {
@@ -86,7 +86,8 @@ public class SeedExecutor implements Runnable {
         }
         IndexRequest.post(parser.get(document, webUrl.getUrl()));
       } catch (Exception ex) {
-        logger.error("Crawl url:" + webUrl.getUrl() + " failed.", ex);
+        // logger.error("Crawl url:" + webUrl.getUrl() + " failed.", ex);
+        System.out.println("Crawl url:" + webUrl.getUrl() + " failed.");
       }
     }
 
@@ -99,11 +100,13 @@ public class SeedExecutor implements Runnable {
       SerializationUtils.serialize(this.filter, new
           FileOutputStream(this.filterFile));
     } catch (Exception ex) {
-      logger.error("Data persistence error happen.", ex);
+      // logger.error("Data persistence error happen.", ex);
+      System.out.println("Data persistence error happen.");
     }
 
     Worker.remove(this.seed.getName());
-    logger.info("Finish crawl seed:" + this.seed.getName());
+    // logger.info("Finish crawl seed:" + this.seed.getName());
+    System.out.println("Finish crawl seed:" + this.seed.getName());
   }
 
   protected Document getDocument(final WebUrl webUrl) {
@@ -113,7 +116,8 @@ public class SeedExecutor implements Runnable {
           .timeout(20 * 1000).get();
       return document;
     } catch (IOException e) {
-      logger.warn("Get document failed.", webUrl);
+      // logger.warn("Get document failed.", webUrl);
+      System.out.println("Get document failed.");
     }
     return null;
   }

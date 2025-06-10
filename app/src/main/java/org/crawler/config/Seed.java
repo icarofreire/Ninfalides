@@ -15,11 +15,11 @@ public class Seed implements Serializable {
 
   private String[] patterns;
 
-  private Integer depth;
+  private Integer depth = 4;
 
   private String userAgent;
 
-  private Integer frequency;
+  private Integer frequency = 5;
 
   public String getUrl() {
     return url;
