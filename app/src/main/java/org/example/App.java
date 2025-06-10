@@ -3,12 +3,28 @@
  */
 package org.example;
 
+import org.crawler.CrawlerApplication;
+import java.util.List;
+import java.util.Arrays;
+
 public class App {
     public String getGreeting() {
-        return "Hello World!";
+        return "Web Crawler Inicializado!";
     }
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+
+        /**\/ interpretar entradas de linhas de comando; */
+        List<String> listArgs = Arrays.asList(args);
+        if(listArgs.contains("-f")){
+
+        }else if(listArgs.contains("-d")){
+            
+        }
+
+        try{
+            CrawlerApplication.main(args);
+        }catch(java.io.IOException e){}
     }
 }
