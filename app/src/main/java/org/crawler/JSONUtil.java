@@ -16,8 +16,8 @@
 package org.crawler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+// import org.slf4j.Logger;
+// import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,7 +34,7 @@ import com.google.gson.Gson;
  */
 public class JSONUtil {
 
-  private static Logger logger = LoggerFactory.getLogger(JSONUtil.class);
+  // private static Logger logger = LoggerFactory.getLogger(JSONUtil.class);
 
   /**
    * Convert object into a JSON string.
@@ -51,9 +51,18 @@ public class JSONUtil {
       }
       return mapper.writeValueAsString(obj);
     } catch (Exception e) {
-      logger.error("Write value as string failed.", e);
+      // logger.error("Write value as string failed.", e);
       return null;
     }
+  }
+
+  public static <T> String toStringGSON(T obj) {
+    Gson gson = new Gson();
+
+    // Converts Java object to JSON string
+    String json = gson.toJson(obj);
+
+    return json;
   }
 
   /**
@@ -86,6 +95,18 @@ public class JSONUtil {
     }
     return null;
   }
+
+  public static <T> T fromFileGSON(File jsonFile, Class<T> t) {
+      Gson gson = new Gson();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(jsonFile));
+            var obj = gson.fromJson(br, t);
+            return obj;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+      return null;
+	}
 
   /**
    * Convert object into a file with JSON string.

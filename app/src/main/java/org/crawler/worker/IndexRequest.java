@@ -11,8 +11,8 @@ import org.crawler.RequestHttp;
 // import org.apache.http.client.methods.HttpPost;
 // import org.apache.http.entity.StringEntity;
 // import org.apache.http.impl.client.DefaultHttpClient;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+// import org.slf4j.Logger;
+// import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class IndexRequest {
 
-  private static Logger logger = LoggerFactory.getLogger(IndexRequest.class);
+  // private static Logger logger = LoggerFactory.getLogger(IndexRequest.class);
 
   public static void post(final Article article) {
     if (article == null
@@ -63,7 +63,7 @@ public class IndexRequest {
       res.post_json(Configurate.get().getIndexUrl(), text);
 
     } catch (Exception ex) {
-      logger.warn("Post exception.", ex);
+      // logger.warn("Post exception.", ex);
     }
   }
 }

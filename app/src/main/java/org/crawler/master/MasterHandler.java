@@ -7,8 +7,8 @@ import org.crawler.worker.BloomFilter;
 // import com.iveely.framework.net.AsynServer;
 import org.crawler.Packet;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+// import org.slf4j.Logger;
+// import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,7 +20,7 @@ import java.util.Map;
  */
 public class MasterHandler /*implements AsynServer.IHandler*/ {
 
-  private static Logger logger = LoggerFactory.getLogger(MasterHandler.class);
+  // private static Logger logger = LoggerFactory.getLogger(MasterHandler.class);
 
   private static Object mutex = new Object();
 
@@ -92,7 +92,7 @@ public class MasterHandler /*implements AsynServer.IHandler*/ {
 
   // @Override
   public void caught(String exception) {
-    logger.warn(exception);
+    // logger.warn(exception);
   }
 }
 

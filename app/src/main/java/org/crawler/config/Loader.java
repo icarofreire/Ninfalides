@@ -2,8 +2,8 @@ package org.crawler.config;
 
 import org.crawler.JSONUtil;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+// import org.slf4j.Logger;
+// import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -11,8 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Loader {
-  public static final Logger logger = LoggerFactory.getLogger(
-      Loader.class);
+  // public static final Logger logger = LoggerFactory.getLogger(Loader.class);
 
   public static List<Seed> fromLocal() {
     List<Seed> configs = new ArrayList<>();

@@ -6,8 +6,8 @@ import org.crawler.config.Task;
 // import com.iveely.framework.net.AsynServer;
 import org.crawler.ThreadUtil;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+// import org.slf4j.Logger;
+// import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -19,7 +19,7 @@ import java.util.Map;
  */
 public class Master implements Runnable {
 
-  private final static Logger logger = LoggerFactory.getLogger(Master.class);
+  // private final static Logger logger = LoggerFactory.getLogger(Master.class);
 
   // private final AsynServer server;
 
@@ -49,11 +49,11 @@ public class Master implements Runnable {
     //   return;
     // }
     this.isStarted = true;
-    logger.info("Master server started,at port {}", this.port);
+    // logger.info("Master server started,at port {}", this.port);
 
     // 2. Get tasks and push into list
     while (true) {
-      logger.info("Start to check configurations.");
+      // logger.info("Start to check configurations.");
       List<Seed> configs = Loader.fromLocal();
       if (configs.size() > 0) {
         this.handler.addTasks(configs);

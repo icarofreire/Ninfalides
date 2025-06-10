@@ -18,7 +18,7 @@ import java.util.Map;
  */
 public class RequestHttp {
 
-  private static final HttpClient httpClient = HttpClient.newBuilder()
+  private final HttpClient httpClient = HttpClient.newBuilder()
           .version(HttpClient.Version.HTTP_1_1)
           .connectTimeout(Duration.ofSeconds(10))
           .build();

@@ -5,8 +5,8 @@ import org.crawler.config.Loader;
 import org.crawler.config.Seed;
 import org.crawler.ThreadUtil;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+// import org.slf4j.Logger;
+// import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,8 +14,7 @@ import java.util.Map;
 
 public class Worker implements Runnable {
 
-  private static final Logger logger =
-      LoggerFactory.getLogger(Worker.class);
+  // private static final Logger logger = LoggerFactory.getLogger(Worker.class);
 
   private final WorkerHandler handler;
 

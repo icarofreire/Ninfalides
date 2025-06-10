@@ -2,8 +2,8 @@ package org.crawler.worker;
 
 import org.crawler.config.Seed;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+// import org.slf4j.Logger;
+// import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -13,7 +13,7 @@ import java.util.concurrent.ThreadPoolExecutor;
  */
 public class WorkerHandler {
 
-  private static Logger logger = LoggerFactory.getLogger(WorkerHandler.class);
+  // private static Logger logger = LoggerFactory.getLogger(WorkerHandler.class);
 
   private static Integer THREAD_POOL_SIZE = 50;
 
