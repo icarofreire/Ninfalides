@@ -74,7 +74,7 @@ public class SeedExecutor implements Runnable {
     while (!queued.isEmpty()) {
       WebUrl webUrl = queued.remove(0);
       // logger.info("Visit web url =>" + webUrl.getUrl() + " (left:" + queued.size() + ")");
-      System.out.println("Visit web url =>" + webUrl.getUrl() + " (left:" + queued.size() + ")");
+      System.out.println("Visit web url =>" + webUrl.getUrl() + " (na fila:" + queued.size() + ")");
       try {
         Document document = getDocument(webUrl);
         if (document == null) {
