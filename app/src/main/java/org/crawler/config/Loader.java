@@ -66,7 +66,8 @@ public class Loader {
     final File confPathFile = new File(fileSites);
     if (!confPathFile.exists() && !confPathFile.isFile()) {
       System.out.println("Arquivo de sites não existe!");
-      System.out.println("Crie um arquivo '" + fileSites + "', contendo as urls a serem analisados.");
+      // System.out.println("Crie um arquivo '" + fileSites + "', contendo as urls a serem analisados.");
+      createNewFile();
       return configs;
     }
 
@@ -103,5 +104,18 @@ public class Loader {
         result = lines.collect(Collectors.toList());
     }catch(IOException e){}
     return result;
+  }
+
+  private static void createNewFile(){
+    File file = new File(fileSites);
+     try {
+        if (file.createNewFile()) {
+            System.out.println("Insira as urls no arquivo criado: " + fileSites);
+        } else {
+            // System.out.println("File already exists.");
+        }
+    } catch (IOException e) {
+        // System.out.println("Error creating file: " + e.getMessage());
+    }
   }
 }
