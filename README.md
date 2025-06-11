@@ -5,7 +5,7 @@ Um web crawler baseado em estruturas de dados probabilísticas.
 ## Run
 
 ```
-...
+$ gradle run
 ```
 
 
