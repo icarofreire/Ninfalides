@@ -81,6 +81,7 @@ public class SeedExecutor implements Runnable {
           continue;
         }
         List<WebUrl> urls = getUrls(webUrl, document);
+        System.out.println(webUrl.getUrl() + " (filhos:" + urls.size() + ")");
         if (urls != null && !urls.isEmpty()) {
           queued.addAll(urls);
         }
@@ -137,7 +138,11 @@ public class SeedExecutor implements Runnable {
         WebUrl childUrl = new WebUrl(webUrl.getDepth() + 1, url);
         childUrl.setDepth(webUrl.getDepth() + 1);
         childUrl.setUrl(url);
-        if (parser.shouldVisit(webUrl, childUrl) && isMatched(url)) {
+
+        /**\/ OBS: bloco de procedimento que realiza a analise de urls
+         * sobre padrões, para inserção na pilha para futura varredura de urls;
+         */
+        if (parser.shouldVisit(webUrl, childUrl) /*&& isMatched(url)*/) {
           list.add(childUrl);
         }
         this.filter.add(url);

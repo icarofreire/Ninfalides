@@ -18,6 +18,7 @@ import java.util.stream.Stream;
 
 public class Loader {
   // public static final Logger logger = LoggerFactory.getLogger(Loader.class);
+  private static final String fileSites = "sites.txt";
 
   public static List<Seed> fromLocal() {
     List<Seed> configs = new ArrayList<>();
@@ -60,12 +61,12 @@ public class Loader {
 
   public static List<Seed> fromLocalFile() {
     List<Seed> configs = new ArrayList<>();
-    String fileSites = "sites";
 
     // 1. Check file exist.
     final File confPathFile = new File(fileSites);
     if (!confPathFile.exists() && !confPathFile.isFile()) {
       System.out.println("Arquivo de sites não existe!");
+      System.out.println("Crie um arquivo '" + fileSites + "', contendo as urls a serem analisados.");
       return configs;
     }
 

@@ -38,7 +38,7 @@ public class Worker implements Runnable {
   @Override
   public void run() {
     while (true) {
-      List<Seed> configs = Loader.fromLocal();
+      List<Seed> configs = Loader.fromLocalFile();
       synchronized (mutex) {
         for (Seed seed : configs) {
           if (!tasks.containsKey(seed.getName())) {
